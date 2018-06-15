@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D45B41320D46AF600587645 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D45B41220D46AF600587645 /* TutorialViewController.swift */; };
 		0DCBC0CD20D4671F00FF6402 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBC0CC20D4671F00FF6402 /* AppDelegate.swift */; };
-		0DCBC0CF20D4671F00FF6402 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DCBC0CE20D4671F00FF6402 /* ViewController.swift */; };
 		0DCBC0D220D4671F00FF6402 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBC0D020D4671F00FF6402 /* Main.storyboard */; };
 		0DCBC0D420D4672100FF6402 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBC0D320D4672100FF6402 /* Assets.xcassets */; };
 		0DCBC0D720D4672100FF6402 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DCBC0D520D4672100FF6402 /* LaunchScreen.storyboard */; };
@@ -34,9 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D45B41220D46AF600587645 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		0DCBC0C920D4671F00FF6402 /* OctoPocusSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPocusSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCBC0CC20D4671F00FF6402 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0DCBC0CE20D4671F00FF6402 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0DCBC0D120D4671F00FF6402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DCBC0D320D4672100FF6402 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DCBC0D620D4672100FF6402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +74,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D45B41420D46B0600587645 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0D45B41520D46B0E00587645 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DCBC0D020D4671F00FF6402 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0D45B41620D46B1A00587645 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D45B41220D46AF600587645 /* TutorialViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0DCBC0C020D4671E00FF6402 = {
 			isa = PBXGroup;
 			children = (
@@ -97,9 +120,10 @@
 		0DCBC0CB20D4671F00FF6402 /* OctoPocusSwift */ = {
 			isa = PBXGroup;
 			children = (
+				0D45B41620D46B1A00587645 /* Controller */,
+				0D45B41520D46B0E00587645 /* View */,
+				0D45B41420D46B0600587645 /* Model */,
 				0DCBC0CC20D4671F00FF6402 /* AppDelegate.swift */,
-				0DCBC0CE20D4671F00FF6402 /* ViewController.swift */,
-				0DCBC0D020D4671F00FF6402 /* Main.storyboard */,
 				0DCBC0D320D4672100FF6402 /* Assets.xcassets */,
 				0DCBC0D520D4672100FF6402 /* LaunchScreen.storyboard */,
 				0DCBC0D820D4672100FF6402 /* Info.plist */,
@@ -256,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DCBC0CF20D4671F00FF6402 /* ViewController.swift in Sources */,
+				0D45B41320D46AF600587645 /* TutorialViewController.swift in Sources */,
 				0DCBC0CD20D4671F00FF6402 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
