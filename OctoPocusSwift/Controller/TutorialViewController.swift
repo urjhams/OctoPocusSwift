@@ -27,7 +27,7 @@ class TutorialViewController: UIViewController {
         if let touchNumberOne = touches.first {
             let touchLocation = touchNumberOne.location(in: view)
             self.lastPoint = touchLocation
-            print("\(lastPoint ?? CGPoint(x: 0, y: 0))\n")
+            print("touched coordinate(x,y): \(lastPoint ?? CGPoint(x: 0, y: 0))\n")
             drawLine(from: self.lastTouch, to: touchLocation)
             self.lastTouch = touchLocation
         }
