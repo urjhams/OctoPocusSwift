@@ -1,15 +1,15 @@
 //
-//  OctoPocusSwiftTests.swift
-//  OctoPocusSwiftTests
+//  OctoPocusPraticeTests.swift
+//  OctoPocusPraticeTests
 //
-//  Created by urjhams on 6/15/18.
+//  Created by urjhams on 8/27/18.
 //  Copyright © 2018 urjhams. All rights reserved.
 //
 
 import XCTest
-@testable import OctoPocusSwift
+@testable import OctoPocusPratice
 
-class OctoPocusSwiftTests: XCTestCase {
+class OctoPocusPraticeTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

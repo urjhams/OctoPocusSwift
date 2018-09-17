@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D3A4EF12134248B00C7252A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4EF02134248B00C7252A /* AppDelegate.swift */; };
+		0D3A4EF32134248B00C7252A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4EF22134248B00C7252A /* ViewController.swift */; };
+		0D3A4EF62134248B00C7252A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A4EF42134248B00C7252A /* Main.storyboard */; };
+		0D3A4EF82134248C00C7252A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A4EF72134248C00C7252A /* Assets.xcassets */; };
+		0D3A4EFB2134248C00C7252A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D3A4EF92134248C00C7252A /* LaunchScreen.storyboard */; };
+		0D3A4F062134248C00C7252A /* OctoPocusPraticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F052134248C00C7252A /* OctoPocusPraticeTests.swift */; };
+		0D3A4F112134248C00C7252A /* OctoPocusPraticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F102134248C00C7252A /* OctoPocusPraticeUITests.swift */; };
+		0D3A4F1F2134252200C7252A /* OctWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F1E2134252200C7252A /* OctWindow.swift */; };
+		0D3A4F222134257B00C7252A /* OctView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F212134257B00C7252A /* OctView.swift */; };
+		0D3A4F242134275600C7252A /* Dollar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F232134275600C7252A /* Dollar.swift */; };
+		0D3A4F27213427DA00C7252A /* Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F26213427DA00C7252A /* Recognizer.swift */; };
+		0D3A4F2B213429E000C7252A /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F2A213429E000C7252A /* Material.swift */; };
+		0D3A4F2D21342A5E00C7252A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A4F2C21342A5E00C7252A /* Utils.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0D3A4F022134248C00C7252A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D3A4EE52134248B00C7252A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3A4EEC2134248B00C7252A;
+			remoteInfo = OctoPocusPratice;
+		};
+		0D3A4F0D2134248C00C7252A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0D3A4EE52134248B00C7252A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0D3A4EEC2134248B00C7252A;
+			remoteInfo = OctoPocusPratice;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0D3A4EED2134248B00C7252A /* OctoPocusPratice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoPocusPratice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3A4EF02134248B00C7252A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0D3A4EF22134248B00C7252A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D3A4EF52134248B00C7252A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0D3A4EF72134248C00C7252A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D3A4EFA2134248C00C7252A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0D3A4EFC2134248C00C7252A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3A4F012134248C00C7252A /* OctoPocusPraticeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPocusPraticeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3A4F052134248C00C7252A /* OctoPocusPraticeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoPocusPraticeTests.swift; sourceTree = "<group>"; };
+		0D3A4F072134248C00C7252A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3A4F0C2134248C00C7252A /* OctoPocusPraticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoPocusPraticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D3A4F102134248C00C7252A /* OctoPocusPraticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctoPocusPraticeUITests.swift; sourceTree = "<group>"; };
+		0D3A4F122134248C00C7252A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D3A4F1E2134252200C7252A /* OctWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctWindow.swift; sourceTree = "<group>"; };
+		0D3A4F212134257B00C7252A /* OctView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OctView.swift; sourceTree = "<group>"; };
+		0D3A4F232134275600C7252A /* Dollar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dollar.swift; sourceTree = "<group>"; };
+		0D3A4F26213427DA00C7252A /* Recognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recognizer.swift; sourceTree = "<group>"; };
+		0D3A4F2A213429E000C7252A /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		0D3A4F2C21342A5E00C7252A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D3A4EEA2134248B00C7252A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4EFE2134248C00C7252A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4F092134248C00C7252A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0D3A4EE42134248B00C7252A = {
+			isa = PBXGroup;
+			children = (
+				0D3A4EEF2134248B00C7252A /* OctoPocusPratice */,
+				0D3A4F042134248C00C7252A /* OctoPocusPraticeTests */,
+				0D3A4F0F2134248C00C7252A /* OctoPocusPraticeUITests */,
+				0D3A4EEE2134248B00C7252A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0D3A4EEE2134248B00C7252A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4EED2134248B00C7252A /* OctoPocusPratice.app */,
+				0D3A4F012134248C00C7252A /* OctoPocusPraticeTests.xctest */,
+				0D3A4F0C2134248C00C7252A /* OctoPocusPraticeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0D3A4EEF2134248B00C7252A /* OctoPocusPratice */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4EF02134248B00C7252A /* AppDelegate.swift */,
+				0D3A4EF22134248B00C7252A /* ViewController.swift */,
+				0D3A4EF42134248B00C7252A /* Main.storyboard */,
+				0D3A4EF72134248C00C7252A /* Assets.xcassets */,
+				0D3A4EF92134248C00C7252A /* LaunchScreen.storyboard */,
+				0D3A4EFC2134248C00C7252A /* Info.plist */,
+				0D3A4F202134253000C7252A /* OctoPocus */,
+			);
+			path = OctoPocusPratice;
+			sourceTree = "<group>";
+		};
+		0D3A4F042134248C00C7252A /* OctoPocusPraticeTests */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4F052134248C00C7252A /* OctoPocusPraticeTests.swift */,
+				0D3A4F072134248C00C7252A /* Info.plist */,
+			);
+			path = OctoPocusPraticeTests;
+			sourceTree = "<group>";
+		};
+		0D3A4F0F2134248C00C7252A /* OctoPocusPraticeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4F102134248C00C7252A /* OctoPocusPraticeUITests.swift */,
+				0D3A4F122134248C00C7252A /* Info.plist */,
+			);
+			path = OctoPocusPraticeUITests;
+			sourceTree = "<group>";
+		};
+		0D3A4F202134253000C7252A /* OctoPocus */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4F1E2134252200C7252A /* OctWindow.swift */,
+				0D3A4F212134257B00C7252A /* OctView.swift */,
+				0D3A4F25213427C000C7252A /* GestureRecognizer */,
+			);
+			path = OctoPocus;
+			sourceTree = "<group>";
+		};
+		0D3A4F25213427C000C7252A /* GestureRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A4F232134275600C7252A /* Dollar.swift */,
+				0D3A4F26213427DA00C7252A /* Recognizer.swift */,
+				0D3A4F2A213429E000C7252A /* Material.swift */,
+				0D3A4F2C21342A5E00C7252A /* Utils.swift */,
+			);
+			path = GestureRecognizer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0D3A4EEC2134248B00C7252A /* OctoPocusPratice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3A4F152134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPratice" */;
+			buildPhases = (
+				0D3A4EE92134248B00C7252A /* Sources */,
+				0D3A4EEA2134248B00C7252A /* Frameworks */,
+				0D3A4EEB2134248B00C7252A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OctoPocusPratice;
+			productName = OctoPocusPratice;
+			productReference = 0D3A4EED2134248B00C7252A /* OctoPocusPratice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0D3A4F002134248C00C7252A /* OctoPocusPraticeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3A4F182134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPraticeTests" */;
+			buildPhases = (
+				0D3A4EFD2134248C00C7252A /* Sources */,
+				0D3A4EFE2134248C00C7252A /* Frameworks */,
+				0D3A4EFF2134248C00C7252A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D3A4F032134248C00C7252A /* PBXTargetDependency */,
+			);
+			name = OctoPocusPraticeTests;
+			productName = OctoPocusPraticeTests;
+			productReference = 0D3A4F012134248C00C7252A /* OctoPocusPraticeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0D3A4F0B2134248C00C7252A /* OctoPocusPraticeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D3A4F1B2134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPraticeUITests" */;
+			buildPhases = (
+				0D3A4F082134248C00C7252A /* Sources */,
+				0D3A4F092134248C00C7252A /* Frameworks */,
+				0D3A4F0A2134248C00C7252A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D3A4F0E2134248C00C7252A /* PBXTargetDependency */,
+			);
+			name = OctoPocusPraticeUITests;
+			productName = OctoPocusPraticeUITests;
+			productReference = 0D3A4F0C2134248C00C7252A /* OctoPocusPraticeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0D3A4EE52134248B00C7252A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = urjhams;
+				TargetAttributes = {
+					0D3A4EEC2134248B00C7252A = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					0D3A4F002134248C00C7252A = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 0D3A4EEC2134248B00C7252A;
+					};
+					0D3A4F0B2134248C00C7252A = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 0D3A4EEC2134248B00C7252A;
+					};
+				};
+			};
+			buildConfigurationList = 0D3A4EE82134248B00C7252A /* Build configuration list for PBXProject "OctoPocusPratice" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0D3A4EE42134248B00C7252A;
+			productRefGroup = 0D3A4EEE2134248B00C7252A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0D3A4EEC2134248B00C7252A /* OctoPocusPratice */,
+				0D3A4F002134248C00C7252A /* OctoPocusPraticeTests */,
+				0D3A4F0B2134248C00C7252A /* OctoPocusPraticeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0D3A4EEB2134248B00C7252A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3A4EFB2134248C00C7252A /* LaunchScreen.storyboard in Resources */,
+				0D3A4EF82134248C00C7252A /* Assets.xcassets in Resources */,
+				0D3A4EF62134248B00C7252A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4EFF2134248C00C7252A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4F0A2134248C00C7252A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0D3A4EE92134248B00C7252A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3A4F2B213429E000C7252A /* Material.swift in Sources */,
+				0D3A4EF32134248B00C7252A /* ViewController.swift in Sources */,
+				0D3A4F222134257B00C7252A /* OctView.swift in Sources */,
+				0D3A4F242134275600C7252A /* Dollar.swift in Sources */,
+				0D3A4F27213427DA00C7252A /* Recognizer.swift in Sources */,
+				0D3A4F1F2134252200C7252A /* OctWindow.swift in Sources */,
+				0D3A4EF12134248B00C7252A /* AppDelegate.swift in Sources */,
+				0D3A4F2D21342A5E00C7252A /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4EFD2134248C00C7252A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3A4F062134248C00C7252A /* OctoPocusPraticeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0D3A4F082134248C00C7252A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D3A4F112134248C00C7252A /* OctoPocusPraticeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D3A4F032134248C00C7252A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3A4EEC2134248B00C7252A /* OctoPocusPratice */;
+			targetProxy = 0D3A4F022134248C00C7252A /* PBXContainerItemProxy */;
+		};
+		0D3A4F0E2134248C00C7252A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0D3A4EEC2134248B00C7252A /* OctoPocusPratice */;
+			targetProxy = 0D3A4F0D2134248C00C7252A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0D3A4EF42134248B00C7252A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D3A4EF52134248B00C7252A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0D3A4EF92134248C00C7252A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D3A4EFA2134248C00C7252A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0D3A4F132134248C00C7252A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0D3A4F142134248C00C7252A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0D3A4F162134248C00C7252A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPratice/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPratice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0D3A4F172134248C00C7252A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPratice/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPratice;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0D3A4F192134248C00C7252A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPraticeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPraticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPocusPratice.app/OctoPocusPratice";
+			};
+			name = Debug;
+		};
+		0D3A4F1A2134248C00C7252A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPraticeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPraticeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OctoPocusPratice.app/OctoPocusPratice";
+			};
+			name = Release;
+		};
+		0D3A4F1C2134248C00C7252A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPraticeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPraticeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OctoPocusPratice;
+			};
+			name = Debug;
+		};
+		0D3A4F1D2134248C00C7252A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TX9R26AVUZ;
+				INFOPLIST_FILE = OctoPocusPraticeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kin.OctoPocusPraticeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OctoPocusPratice;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0D3A4EE82134248B00C7252A /* Build configuration list for PBXProject "OctoPocusPratice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3A4F132134248C00C7252A /* Debug */,
+				0D3A4F142134248C00C7252A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D3A4F152134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPratice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3A4F162134248C00C7252A /* Debug */,
+				0D3A4F172134248C00C7252A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D3A4F182134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPraticeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3A4F192134248C00C7252A /* Debug */,
+				0D3A4F1A2134248C00C7252A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0D3A4F1B2134248C00C7252A /* Build configuration list for PBXNativeTarget "OctoPocusPraticeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D3A4F1C2134248C00C7252A /* Debug */,
+				0D3A4F1D2134248C00C7252A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0D3A4EE52134248B00C7252A /* Project object */;
+}

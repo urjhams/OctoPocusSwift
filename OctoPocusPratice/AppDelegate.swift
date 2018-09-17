@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  OctoPocusSwift
+//  OctoPocusPratice
 //
-//  Created by urjhams on 6/15/18.
+//  Created by urjhams on 8/27/18.
 //  Copyright © 2018 urjhams. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    var window: UIWindow? = OctWindow()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

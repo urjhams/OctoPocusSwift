@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:OctoPocusSwift.xcodeproj">
+      location = "self:OctoPocusPratice.xcodeproj">
    </FileRef>
 </Workspace>
