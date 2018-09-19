@@ -15,11 +15,12 @@ class ViewController: UIViewController {
         let window = UIApplication.shared.keyWindow! as! OctWindow
         let view = OctView()
         view.gesturedHandler = { index in
-            view.isUserInteractionEnabled = false
             let alert = UIAlertController(title: nil, message: view.names[index], preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            self.present(alert, animated: true, completion: {
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
                 view.isUserInteractionEnabled = true
+            }))
+            self.present(alert, animated: true, completion: {
+                view.isUserInteractionEnabled = false
             })
         }
         window.setOctView(view: view)

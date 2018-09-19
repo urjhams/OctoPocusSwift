@@ -34,7 +34,6 @@ class OctView: UIImageView {
     var lastForcePoint = CGPoint.zero       // first 3D touch point
     
     var userForcePath = [CGPoint]()         // list of 3D touch points
-    var forceTouch = false
     
     public init() {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
@@ -44,7 +43,7 @@ class OctView: UIImageView {
         super.init(coder: aDecoder)
     }
     @objc func runTimeCode() {
-        time = (forceTouch) ? time + 0.01 : 0.0
+        time = time + 0.01
     }
 }
 
@@ -58,15 +57,6 @@ extension OctView {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let currentPoint = touch.location(in: self)
-            if !forceTouch {
-                userForcePath.removeAll()
-                dollar.clear()
-                forceTouch = true
-                if #available(iOS 10.0, *) {
-                    let generator = UIImpactFeedbackGenerator(style: .medium)
-                    generator.impactOccurred()
-                }
-            }
             dollar.addPoint(x: Int(currentPoint.x), y: Int(currentPoint.y))
             if (lastForcePoint == CGPoint.zero) {
                 lastForcePoint = currentPoint

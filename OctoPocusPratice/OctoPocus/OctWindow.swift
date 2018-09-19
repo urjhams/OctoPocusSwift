@@ -24,9 +24,7 @@ class OctWindow: UIWindow {
             }
             if let count = event.allTouches?.filter({ $0.phase == .moved }).count, count > 0 {
                 view.touchesMoved(event.allTouches!, with: nil)
-                if !view.forceTouch {
-                    super.sendEvent(event)
-                }
+               super.sendEvent(event)
             }
             if let count = event.allTouches?.filter({ $0.phase == .ended }).count, count > 0 {
                 view.touchesEnded(event.allTouches!, with: nil)
