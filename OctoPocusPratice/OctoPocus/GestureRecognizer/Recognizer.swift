@@ -28,9 +28,20 @@ public class Recognizer {
         loadTemplatesDefault()
     }
     
+    init(withLeft left: Bool) {
+        loadTemplatesDefault(left: left)
+    }
+    func loadTemplatesDefault(left: Bool) {
+        for i in 0...2 {
+            Templates.append(loadTemplate(array: left ? TemplateData.DataLeft[i] : TemplateData.DataRight[i]))
+        }
+    }
+    
+    
     func loadTemplatesDefault() {
         for i in 0...2 {
             Templates.append(loadTemplate(array: TemplateData.DataRight[i]))
+            //Templates.append(loadTemplate(array: TemplateData.DataLeft[i]))
         }
     }
     

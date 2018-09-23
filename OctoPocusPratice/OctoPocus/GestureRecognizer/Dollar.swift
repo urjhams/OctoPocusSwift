@@ -28,6 +28,10 @@ class Dollar{
         recognizer = Recognizer()
     }
     
+    init(left: Bool) {
+        recognizer = Recognizer(withLeft: left)
+    }
+    
     public func getPoints() -> [CGPoint] {
         return points
     }

@@ -265,8 +265,10 @@ public class Utils
     
     public static func PathLength(points: [CGPoint]) -> Double{
         var length = Double(0)
-        for i in 1...points.count-1{
-            length += Distance(p1: points[i - 1], p2: points[i])
+        if points.count > 1 {
+            for i in 1...points.count-1{
+                length += Distance(p1: points[i - 1], p2: points[i])
+            }
         }
         return length
     }

@@ -28,7 +28,7 @@ class OctView: UIImageView {
     }
     var brushSize: CGFloat = DEFAULT_BRUSH_SIZE
     var colors: [UIColor] = DEFAULT_COLORS
-    var dollar = Dollar()
+    var dollar:Dollar?
     public var names: [String] = ["Cut", "Copy", "Paste"]
     var timer = Timer()
     var time = 0.0
@@ -55,6 +55,7 @@ class OctView: UIImageView {
     func touchesBegan(_ touches: Set<UITouch>) {
         if let touch = touches.first { // If touches just began
             lastPoint = touch.location(in: self)
+            dollar = Dollar(left: lastPoint.isLeftSideOf(frame: self.frame))
         }
     }
     
@@ -63,7 +64,7 @@ class OctView: UIImageView {
             let currentPoint = touch.location(in: self)
             if (!forceTouch) {
                 userPathForce.removeAll()
-                dollar.clear()
+                dollar!.clear()
                 forceTouch = true
                 if #available(iOS 10.0, *) {
                     let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -72,22 +73,22 @@ class OctView: UIImageView {
                     // Fallback on earlier versions
                 }
             }
-            dollar.addPoint(x: Int(currentPoint.x), y: Int(currentPoint.y))
+            dollar!.addPoint(x: Int(currentPoint.x), y: Int(currentPoint.y))
             if (lastPointForce == CGPoint.zero){
                 lastPointForce = currentPoint
             }
             
-            if (dollar.points.count > 1){
+            if (dollar!.points.count > 1){
                 self.image = nil
                 for view in self.subviews{
                     view.removeFromSuperview()
                 }
-                let results = dollar.predict()
+                let results = dollar!.predict()
                 if (results.count > 0) {
                     for i in 0...results.count-1{
                         let res = results[i]
                         let curColor = colors[res.index]
-                        let points = dollar.recognizer.RawTemplates[res.index]
+                        let points = dollar!.recognizer.RawTemplates[res.index]
                         drawPoints(points, text: names[res.index], color:curColor, strokeSize: self.brushSize*CGFloat(res.score)*CGFloat(res.score))
                     }
                 }
@@ -101,15 +102,15 @@ class OctView: UIImageView {
         for view in self.subviews{
             view.removeFromSuperview()
         }
-        dollar.recognize()
-        let res = dollar.result
+        dollar!.recognize()
+        let res = dollar!.result
         if (res.score as Double > 0.8) {
             self.gestureHandler(res.index)
         } else {
             
         }
         userPathForce.removeAll()
-        dollar.clear()
+        dollar!.clear()
         lastPoint = CGPoint.zero
         lastPointForce = CGPoint.zero
     }
@@ -177,8 +178,6 @@ class OctView: UIImageView {
     }
 }
 
-
-
 extension UIColor {
     func lighter(by percentage:CGFloat=30.0) -> UIColor? {
         return self.adjust(by: abs(percentage) )
@@ -198,5 +197,11 @@ extension UIColor {
         }else{
             return nil
         }
+    }
+}
+
+extension CGPoint {
+    func isLeftSideOf(frame: CGRect) -> Bool {
+        return self.x < CGFloat(frame.width / 2)
     }
 }
