@@ -16,18 +16,20 @@ class OctWindow: UIWindow {
         self.addSubview(view)
     }
     
-    override func sendEvent(_ event: UIEvent) {
+    override public func sendEvent(_ event: UIEvent) {
         if event.type == .touches {
             if let count = event.allTouches?.filter({ $0.phase == .began }).count, count > 0 {
-                view.touchesBegan(event.allTouches!, with: nil)
+                view.touchesBegan(event.allTouches!)
                 super.sendEvent(event)
             }
             if let count = event.allTouches?.filter({ $0.phase == .moved }).count, count > 0 {
-                view.touchesMoved(event.allTouches!, with: nil)
-               super.sendEvent(event)
+                view.touchesMoved(event.allTouches!)
+                if (!view.forceTouch){
+                    super.sendEvent(event)
+                }
             }
             if let count = event.allTouches?.filter({ $0.phase == .ended }).count, count > 0 {
-                view.touchesEnded(event.allTouches!, with: nil)
+                view.touchesEnded(event.allTouches!)
                 super.sendEvent(event)
             }
             if let count = event.allTouches?.filter({ $0.phase == .cancelled }).count, count > 0 {

@@ -15,11 +15,11 @@ public class Rectangle {
     public var width: Double
     public var height: Double
     
-    init(x: Double, y: Double, width: Double, heihgt: Double) {
+    init(x: Double, y: Double, width: Double, height: Double) {
         self.x = x
         self.y = y
         self.width = width
-        self.height = heihgt
+        self.height = height
     }
     
     public func copy(src: Rectangle) {
@@ -33,8 +33,8 @@ public class Rectangle {
 public class Template {
     var mPoints: [CGPoint]!
     init(points : [CGPoint]) {
-        self.mPoints = Utils.Resample(points: points, n: Recognizer.numPoints)
-        self.mPoints = Utils.ScaleToSquare(points: self.mPoints, size: Recognizer.squareSize)
+        self.mPoints = Utils.Resample(points: points, n: Recognizer.NumPoints)
+        self.mPoints = Utils.ScaleToSquare(points: self.mPoints, size: Recognizer.SquareSize)
         self.mPoints = Utils.TranslateToOrigin(points: self.mPoints)
     }
 }

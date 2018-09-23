@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         let window = UIApplication.shared.keyWindow! as! OctWindow
         let view = OctView()
-        view.gesturedHandler = { index in
+        view.gestureHandler = { index in
             let alert = UIAlertController(title: nil, message: view.names[index], preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action) in
                 view.isUserInteractionEnabled = true

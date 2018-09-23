@@ -8,18 +8,23 @@
 
 import UIKit
 
-class Dollar {
+class Dollar{
     var x,y: Int!
     var state: Int!
-    var key = -1
+    
+    var key = Int(-1)
+    
     var gesture = true
     var points = [CGPoint]()
+    
     var recognizer: Recognizer!
     var result = Result(index: -1, score: 0, theta: Utils.lastTheta)
+    
     var active = true
+    
     var gestureSet: Int!
     
-    init() {
+    init(){
         recognizer = Recognizer()
     }
     
@@ -34,12 +39,15 @@ class Dollar {
     }
     
     public func recognize() {
+        
         if (!active){
             return
         }
+        
         if (points.count == 0){
             return
         }
+        
         result = recognizer.Recognize(points: points)
         
     }
@@ -48,10 +56,11 @@ class Dollar {
         if (!active){
             return [Result]()
         }
+        
         if (points.count == 0){
             return [Result]()
         }
-        return recognizer.predict(points: points)
+        return recognizer.Predict(points: points)
     }
     
     

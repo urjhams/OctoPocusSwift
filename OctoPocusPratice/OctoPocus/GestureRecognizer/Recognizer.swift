@@ -9,114 +9,118 @@
 import UIKit
 
 public class Recognizer {
-    public static let numPoints = 16
-    public static let squareSize = 180.0
-    
-    let halfDiagonal = sqrt(2 * squareSize * squareSize) / 2
-    let angleRange = 45.0
-    let anglePrecision = 2.0
-    public static let phi = (-1.0 + sqrt(5.0)) / 2          // golden ratio
+    public static let NumPoints = 16
+    public static let SquareSize = 180.0
+    let HalfDiagonal = 0.5 * sqrt(2*SquareSize*SquareSize)
+    let AngleRange = 45.0
+    let AnglePrecision = 2.0
+    public static let Phi = 0.5 * (-1.0 + sqrt(5.0)) // Golden Ratio
     
     public var centroid = CGPoint(x: 0, y: 0)
-    public var boundingBox = Rectangle(x: 0, y: 0, width: 0, heihgt: 0)
+    public var boundingBox = Rectangle(x: 0, y: 0, width: 0, height: 0)
     
     var bounds = [0, 0, 0, 0]
     
     var Templates = [Template]()
     var RawTemplates = [[CGPoint]]()
     
-    init() {
-        for index in 0...2 {
-            Templates.append(loadTemplate(array: TemplateData.DataRight[index]))
+    init(){
+        loadTemplatesDefault()
+    }
+    
+    func loadTemplatesDefault() {
+        for i in 0...2 {
+            Templates.append(loadTemplate(array: TemplateData.DataRight[i]))
         }
     }
     
-    private func loadTemplate(array: [Double]) -> Template {
-        return Template(points: loadArray(array: array))
+    func loadTemplate(array: [Double]) -> Template {
+        return Template(points: loadArray(array: array));
     }
     
-    private func loadArray(array: [Double]) -> [CGPoint] {
-        var arr = [CGPoint]()
-        for index in 0...(array.count - 1) {
-            if (index % 2 == 0) {
-                let element = CGPoint(x: array[index], y: array[index + 1])
-                arr.append(element)
+    func loadArray(array: [Double]) -> [CGPoint] {
+        var  v = [CGPoint]()
+        for i in 0...array.count-1{
+            if (i%2==0){
+                let p = CGPoint(x: array[i], y:array[i+1]);
+                v.append(p);
             }
         }
-        RawTemplates.append(arr)
-        return arr
+        RawTemplates.append(v)
+        return v
     }
     
     public func Recognize(points: [CGPoint]) -> Result {
-        var listPoints = Utils.Resample(points: points, n: Recognizer.numPoints)
-        listPoints = Utils.ScaleToSquare(points: listPoints, size: Recognizer.squareSize)
-        listPoints = Utils.TranslateToOrigin(points: listPoints)
-        
+        var points2 = Utils.Resample(points: points, n: Recognizer.NumPoints)
+        points2 = Utils.ScaleToSquare(points: points2, size: Recognizer.SquareSize)
+        points2 = Utils.TranslateToOrigin(points: points2)
         bounds[0] = Int(boundingBox.x)
         bounds[1] = Int(boundingBox.y)
         bounds[2] = Int(boundingBox.x + boundingBox.width)
         bounds[3] = Int(boundingBox.y + boundingBox.height)
         
-        var defaultIndex = 0
+        var t = 0
         
-        var greateMag = Double.greatestFiniteMagnitude
-        for index in 0...Templates.count-1 {
-            let dist = Utils.DistanceAtBestAngle(points: listPoints, T: Templates[index], a: -angleRange, b: angleRange, threshold: anglePrecision)
-            if (dist < greateMag) {
-                greateMag = dist
-                defaultIndex = index
+        var b = Double.greatestFiniteMagnitude
+        for i in 0...Templates.count-1{
+            let d = Utils.DistanceAtBestAngle(points: points2, T: Templates[i], a: -AngleRange, b: AngleRange, threshold: AnglePrecision)
+            if (d < b) {
+                b = d
+                t = i
             }
         }
-        let score = 1.0 - (greateMag / halfDiagonal)
-        return Result(index: Int(score), score: Double(defaultIndex), theta: Utils.lastTheta)
+        let score = 1.0 - (b / HalfDiagonal)
+        return Result(index: t, score: score, theta: Utils.lastTheta)
     }
     
-    public func predict(points: [CGPoint]) -> [Result] {
+    public func Predict(points: [CGPoint]) -> [Result] {
         var answer = [Result]()
         var length = 0.0
-        for index in 1...points.count-1 {
-            length += Utils.Distance(p1: points[index - 1], p2: points[index])
+        for i in 1...points.count-1{
+            length += Utils.Distance(p1: points[i-1], p2: points[i])
         }
         if (length == 0) {
-            for index in 0...RawTemplates.count-1 {
-                answer.append(Result(index: index, score: 1, theta: Utils.lastTheta))
+            for i in 0...RawTemplates.count-1{
+                answer.append(Result(index: i, score: 1, theta: Utils.lastTheta))
             }
             return answer
         }
-        for index in 0...RawTemplates.count-1 {
+        for i in 0...RawTemplates.count-1{
             var l = 0.0
-            var currTemp = [CGPoint]()
-            currTemp.append(contentsOf: points)
-            var val = 0
-            while (l < length && (val + 1) < RawTemplates[index].count) {
-                l += Utils.Distance(p1: RawTemplates[index][val], p2: RawTemplates[index][index + 1])
-                val += 1
+            var curTemp = [CGPoint]()
+            curTemp.append(contentsOf: points)
+            var t=0
+            while (l<length && t+1<RawTemplates[i].count){
+                l += Utils.Distance(p1: RawTemplates[i][t], p2: RawTemplates[i][t+1])
+                t += 1
             }
-            if (length == 0) {
+            if (length == 0){
                 return answer
             }
-            let deltaX = RawTemplates[index][val - 1].x - points[points.count - 1].x
-            let deltaY = RawTemplates[index][val - 1].y - points[points.count - 1].y
-            for element in val...RawTemplates[index].count-1 {
-                var el = RawTemplates[index][element]
-                el.x -= deltaX
-                el.y -= deltaY
-                currTemp.append(el)
+            
+            let deltaX = RawTemplates[i][t-1].x - points[points.count-1].x
+            let deltaY = RawTemplates[i][t-1].y - points[points.count-1].y
+            for j in t...RawTemplates[i].count-1{
+                var p = RawTemplates[i][j]
+                p.x -= deltaX
+                p.y -= deltaY
+                curTemp.append(p)
             }
-            currTemp = Utils.Resample(points: currTemp, n: Recognizer.numPoints)
-            currTemp = Utils.ScaleToSquare(points: currTemp, size: Recognizer.squareSize)
-            currTemp = Utils.TranslateToOrigin(points: currTemp)
+            curTemp = Utils.Resample(points: curTemp, n: Recognizer.NumPoints)
+            curTemp = Utils.ScaleToSquare(points: curTemp, size: Recognizer.SquareSize)
+            curTemp = Utils.TranslateToOrigin(points: curTemp)
             bounds[0] = Int(boundingBox.x)
             bounds[1] = Int(boundingBox.y)
             bounds[2] = Int(boundingBox.x + boundingBox.width)
             bounds[3] = Int(boundingBox.y + boundingBox.height)
             
-            let dis = Utils.DistanceAtBestAngle(points: currTemp, T: Templates[index], a: -angleRange, b: angleRange, threshold: anglePrecision)
-            let score = 1.0 - (dis / halfDiagonal)
-            if (score > 0.8) {
-                answer.append(Result(index: index, score: score, theta: Utils.lastTheta))
+            let d = Utils.DistanceAtBestAngle(points: curTemp, T: Templates[i], a: -AngleRange, b: AngleRange, threshold: AnglePrecision)
+            let score = 1.0 - (d / HalfDiagonal)
+            if (score > 0.8){
+                answer.append(Result(index: i, score: score, theta: Utils.lastTheta))
             }
         }
+        
         return answer
     }
 }

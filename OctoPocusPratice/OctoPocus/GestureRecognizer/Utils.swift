@@ -39,6 +39,7 @@ import UIKit
  *  -------------------------------------------------------------------------
  */
 
+
 public class Utils
 {
     public static var lastTheta: Double = Double(0)
@@ -213,7 +214,7 @@ public class Utils
             }
         }
         
-        return Rectangle(x: Double(minX), y: Double(minY), width: Double(maxX - minX), heihgt: Double(maxY - minY))
+        return Rectangle(x: Double(minX), y: Double(minY), width: Double(maxX - minX), height: Double(maxY - minY))
     }
     
     public static func BoundingBox(points: [CGPoint], dst: Rectangle){

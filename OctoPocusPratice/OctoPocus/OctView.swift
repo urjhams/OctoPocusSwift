@@ -8,115 +8,131 @@
 
 import UIKit
 
+
 class OctView: UIImageView {
+    // MARK: Constants
     
-    fileprivate static let TRAINNING_MODE_ACTIVATE_TIME = 0.1
-    fileprivate static let DEFAULT_TOUCH_PRESSURE = 0.8
-    fileprivate static let DEFAULT_BRUSH_SIZE: CGFloat = 10.0
-    fileprivate static let DEFAULT_OPACITY: CGFloat = 1.0
-    fileprivate static let DEFAULT_COLORS = [
+    static let TRAINING_MODE_ACTIVATION_TIME = 0.1
+    static let DEFAULT_TOUCH_PRESSURE = 0.8
+    static let DEFAULT_BRUSH_SIZE: CGFloat = 10.0
+    static let DEFAULT_OPACITY: CGFloat = 1.0
+    static let DEFAULT_COLORS = [
         UIColor(red: 186.0/255, green: 34.0/255, blue: 34.0/255, alpha: 1.0),
         UIColor(red: 27.0/255, green: 149.0/255, blue: 27.0/255, alpha: 1.0),
         UIColor(red: 24.0/255, green: 14.0/255, blue: 197.0/255, alpha: 1.0)
     ]
     
-    public var gesturedHandler: (_ index: Int) -> () = { index in
+    // MARK: Properties
+    public var gestureHandler: (_ index: Int) -> () = {_ in
         print(index)
     }
     var brushSize: CGFloat = DEFAULT_BRUSH_SIZE
-    var colors = DEFAULT_COLORS
+    var colors: [UIColor] = DEFAULT_COLORS
     var dollar = Dollar()
     public var names: [String] = ["Cut", "Copy", "Paste"]
     var timer = Timer()
     var time = 0.0
     
-    var lastPoint = CGPoint.zero            // last touched point
-    var lastForcePoint = CGPoint.zero       // first 3D touch point
+    var lastPoint = CGPoint.zero // Last point touched
+    var lastPointForce = CGPoint.zero // First point touched with force
     
-    var userForcePath = [CGPoint]()         // list of 3D touch points
+    var userPathForce = [CGPoint]() // Touch path with force
+    var forceTouch = false
+    
+    // MARK: Constructors
     
     public init() {
         super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimeCode), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(runTimedCode), userInfo: nil, repeats: true)
     }
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    @objc func runTimeCode() {
-        time = time + 0.01
-    }
-}
-
-// MARK: Methods
-extension OctView {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
+    
+    // MARK: Methods
+    
+    func touchesBegan(_ touches: Set<UITouch>) {
+        if let touch = touches.first { // If touches just began
             lastPoint = touch.location(in: self)
         }
     }
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    func touchesMoved(_ touches: Set<UITouch>) {
         if let touch = touches.first {
             let currentPoint = touch.location(in: self)
+            if (!forceTouch) {
+                userPathForce.removeAll()
+                dollar.clear()
+                forceTouch = true
+                if #available(iOS 10.0, *) {
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.impactOccurred()
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
             dollar.addPoint(x: Int(currentPoint.x), y: Int(currentPoint.y))
-            if (lastForcePoint == CGPoint.zero) {
-                lastForcePoint = currentPoint
+            if (lastPointForce == CGPoint.zero){
+                lastPointForce = currentPoint
             }
             
-            if dollar.points.count > 1 {
+            if (dollar.points.count > 1){
                 self.image = nil
-                for view in self.subviews {
+                for view in self.subviews{
                     view.removeFromSuperview()
                 }
-                let result = dollar.predict()
-                if result.count > 0 {
-                    for index in 0...result.count-1 {
-                        let res = result[index]
-                        let currColor = colors[res.index]
+                let results = dollar.predict()
+                if (results.count > 0) {
+                    for i in 0...results.count-1{
+                        let res = results[i]
+                        let curColor = colors[res.index]
                         let points = dollar.recognizer.RawTemplates[res.index]
-                        drawPoints(points, text: names[res.index], color: currColor, strokeSize: self.brushSize * CGFloat(res.score) * CGFloat(res.score))
+                        drawPoints(points, text: names[res.index], color:curColor, strokeSize: self.brushSize*CGFloat(res.score)*CGFloat(res.score))
                     }
                 }
             }
-            userForcePath.append(currentPoint)
+            userPathForce.append(currentPoint)
             lastPoint = currentPoint
         }
     }
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func touchesEnded(_ touches: Set<UITouch>) {
         self.image = nil
-        for view in self.subviews {
+        for view in self.subviews{
             view.removeFromSuperview()
         }
         dollar.recognize()
         let res = dollar.result
-        if res.score as Double > 0.8 {
-            self.gesturedHandler(res.index)
+        if (res.score as Double > 0.8) {
+            self.gestureHandler(res.index)
+        } else {
+            
         }
-        userForcePath.removeAll()
+        userPathForce.removeAll()
         dollar.clear()
         lastPoint = CGPoint.zero
-        lastForcePoint = CGPoint.zero
+        lastPointForce = CGPoint.zero
     }
-    
-    private func drawPoints(_ points: [CGPoint], text: String, color: UIColor, strokeSize: CGFloat){
+    func drawPoints(_ points: [CGPoint], text: String, color: UIColor, strokeSize: CGFloat){
         UIGraphicsBeginImageContext(self.frame.size)
         self.image?.draw(in: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         let context = UIGraphicsGetCurrentContext()
-        let deltaX = points[0].x - lastForcePoint.x
-        let deltaY = points[0].y - lastForcePoint.y
+        let deltaX = points[0].x - lastPointForce.x
+        let deltaY = points[0].y - lastPointForce.y
         var length = 0.0
-        if (userForcePath.count > 1){
-            for index in 1...userForcePath.count-1{
-                length += Utils.Distance(p1: userForcePath[index-1], p2: userForcePath[index])
+        if (userPathForce.count > 1){
+            for i in 1...userPathForce.count-1{
+                length += Utils.Distance(p1: userPathForce[i-1], p2: userPathForce[i])
             }
         }
         
-        var defLength = 0.0
-        var point = 1
-        while (defLength < length && point<points.count-1){
-            defLength += Utils.Distance(p1: points[point], p2: points[point+1])
-            context?.move(to: CGPoint(x: points[point-1].x-deltaX, y: points[point-1].y-deltaY))
-            context?.addLine(to: CGPoint(x: points[point].x-deltaX, y: points[point].y-deltaY))
-            point += 1
+        var l = 0.0
+        var t = 1
+        while (l < length && t<points.count-1){
+            l += Utils.Distance(p1: points[t], p2: points[t+1])
+            context?.move(to: CGPoint(x: points[t-1].x-deltaX, y: points[t-1].y-deltaY))
+            context?.addLine(to: CGPoint(x: points[t].x-deltaX, y: points[t].y-deltaY))
+            t += 1
         }
         context?.setBlendMode(CGBlendMode.normal)
         context?.setLineCap(CGLineCap.round)
@@ -126,7 +142,7 @@ extension OctView {
         
         context?.strokePath()
         
-        for i in point...points.count-1{
+        for i in t...points.count-1{
             context?.move(to: CGPoint(x: points[i-1].x-deltaX, y: points[i-1].y-deltaY))
             context?.addLine(to: CGPoint(x: points[i].x-deltaX, y: points[i].y-deltaY))
         }
@@ -151,7 +167,17 @@ extension OctView {
         label.textAlignment = NSTextAlignment.center
         self.addSubview(label)
     }
+    
+    @objc public func runTimedCode() {
+        if (forceTouch) {
+            time += 0.01
+        } else {
+            time = 0.0
+        }
+    }
 }
+
+
 
 extension UIColor {
     func lighter(by percentage:CGFloat=30.0) -> UIColor? {
