@@ -12,24 +12,27 @@ import UIKit
 class OctView: UIImageView {
     // MARK: Constants
     
-    static let TRAINING_MODE_ACTIVATION_TIME = 0.1
-    static let DEFAULT_TOUCH_PRESSURE = 0.8
-    static let DEFAULT_BRUSH_SIZE: CGFloat = 10.0
-    static let DEFAULT_OPACITY: CGFloat = 1.0
-    static let DEFAULT_COLORS = [
+    static let activeTime = 0.1
+    static let defualtTouchPressure = 0.8
+    static let defaultBrushSize: CGFloat = 10.0
+    static let defaultOpacity: CGFloat = 1.0
+    static let listColors = [
         UIColor(red: 186.0/255, green: 34.0/255, blue: 34.0/255, alpha: 1.0),
         UIColor(red: 27.0/255, green: 149.0/255, blue: 27.0/255, alpha: 1.0),
-        UIColor(red: 24.0/255, green: 14.0/255, blue: 197.0/255, alpha: 1.0)
+        UIColor(red: 24.0/255, green: 14.0/255, blue: 197.0/255, alpha: 1.0),
+        UIColor(red: 153/255, green: 51/255, blue: 255/255, alpha: 1),
+        UIColor(red: 0, green: 255/255, blue: 128/255, alpha: 1)
     ]
+    static let listGestures = ["Cut", "Copy", "Paste","Down","Clear"]
     
     // MARK: Properties
     public var gestureHandler: (_ index: Int) -> () = {_ in
         print(index)
     }
-    var brushSize: CGFloat = DEFAULT_BRUSH_SIZE
-    var colors: [UIColor] = DEFAULT_COLORS
+    var brushSize: CGFloat = defaultBrushSize
+    var colors: [UIColor] = listColors
     var dollar:Dollar?
-    public var names: [String] = ["Cut", "Copy", "Paste"]
+    public var names: [String] = listGestures
     var timer = Timer()
     var time = 0.0
     

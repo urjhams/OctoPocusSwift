@@ -32,7 +32,7 @@ public class Recognizer {
         loadTemplatesDefault(left: left)
     }
     func loadTemplatesDefault(left: Bool) {
-        for i in 0...2 {
+        for i in 0..<OctView.listGestures.count {
             Templates.append(loadTemplate(array: left ? TemplateData.DataLeft[i] : TemplateData.DataRight[i]))
         }
     }
