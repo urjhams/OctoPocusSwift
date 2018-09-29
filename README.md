@@ -1,7 +1,7 @@
 # OctoPocusSwift
 Exercise 5 in MSI 2018
 - [Description](#description)
-- [Installation] (#installation)
+- [Installation](#installation)
 - [Team Information](#information)
 ## Description
 - An inplementation of OctoPocus: A Dynamic Guide for Learning Gesture-Based Command Sets
